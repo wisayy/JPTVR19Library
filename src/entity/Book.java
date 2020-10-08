@@ -1,10 +1,12 @@
 package entity;
 
+import java.io.Serializable;
+
 /**
  *
  * @author pupil
  */
-public class Book {
+public class Book implements Serializable{
     private String name;
     private String author;
     private Integer publishedYear;

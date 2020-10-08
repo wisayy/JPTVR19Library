@@ -9,6 +9,8 @@ package jptvr19library;
  *
  * @author pupil
  */
+import tools.ReaderSaver;
+import tools.BookSaver;
 import entity.Reader;
 import entity.Book;
 import java.util.Scanner;
@@ -22,6 +24,13 @@ import tools.ReadersList;
 class App {
     private Book[] books = new Book[10];
     private Reader[] readers = new Reader[50];
+    
+    public App() {
+        BookSaver bookSaver = new BookSaver();
+        books = bookSaver.loadBooks();
+        ReaderSaver readerSaver = new ReaderSaver();
+        readers = readerSaver.loadReaders();
+    }
     public void run(){
         System.out.println("--- Библиотека ---");
         boolean repeat = true;
@@ -54,6 +63,8 @@ class App {
                             break;
                         }
                     }
+                    BookSaver bookSaver = new BookSaver();
+                    bookSaver.saveBooks(books);
                     System.out.println("Создана книга: "+book.getName());
                     //System.out.println(book.toString());
                     break;
@@ -75,6 +86,8 @@ class App {
                             break;
                         }
                     }
+                    ReaderSaver readerSaver = new ReaderSaver();
+                    readerSaver.saveReaders(readers);
                     break;
                 case "4":
                     for (int i = 0; i < readers.length; i++) {
