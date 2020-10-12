@@ -7,7 +7,7 @@ package jptvr19library;
 
 /**
  *
- * @author pupil
+ * @author Melnikov+
  */
 public class JPTVR19Library {
 
@@ -15,7 +15,6 @@ public class JPTVR19Library {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         App app = new App();
         app.run();
     }

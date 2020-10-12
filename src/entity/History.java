@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author pupil
+ * @author Melnikov
  */
 public class History {
     private Book book;

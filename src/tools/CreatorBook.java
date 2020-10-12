@@ -10,9 +10,9 @@ import java.util.Scanner;
 
 /**
  *
- * @author pupil
+ * @author Melnikov
  */
-    public class CreatorBook {
+public class CreatorBook {
         private Scanner scanner = new Scanner(System.in);
 
     public Book getBook() {
@@ -31,4 +31,3 @@ import java.util.Scanner;
     }
     
 }
-    

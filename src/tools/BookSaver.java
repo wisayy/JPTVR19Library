@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author pupil
+ * @author Melnikov
  */
 public class BookSaver {
 
@@ -30,14 +30,14 @@ public class BookSaver {
             oos.writeObject(books);
             oos.flush();
         } catch (FileNotFoundException ex) {
-            System.out.println("Файл не найден");
+            System.out.println("Не найден файл");
         } catch (IOException ex) {
             System.out.println("Ошибка ввода/вывода");
         }
     }
 
- public Book[] loadBooks() {
-        Book[] books = new Book[10];
+    public Book[] loadBooks() {
+        Book[] books = null;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         try {
@@ -53,4 +53,7 @@ public class BookSaver {
         }
         return books;
     }
+
+    
+    
 }

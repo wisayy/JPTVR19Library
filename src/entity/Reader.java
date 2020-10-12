@@ -7,7 +7,7 @@ package entity;
 
 /**
  *
- * @author pupil
+ * @author Melnikov
  */
 public class Reader {
     private String firstname;
