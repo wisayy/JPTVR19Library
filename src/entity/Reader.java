@@ -12,25 +12,25 @@ import java.io.Serializable;
  * @author Melnikov
  */
 public class Reader implements Serializable{
-    private String name;
+    private String firstname;
     private String lastname;
     private String phone;
 
     public Reader() {
     }
 
-    public Reader(String name, String lastname, String phone) {
-        this.name = name;
+    public Reader(String firstname, String lastname, String phone) {
+        this.firstname = firstname;
         this.lastname = lastname;
         this.phone = phone;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
     public String getLastname() {
@@ -52,11 +52,11 @@ public class Reader implements Serializable{
     @Override
     public String toString() {
         return "Reader{" 
-                + "name=" + name 
+                + "firstname=" + firstname 
                 + ", lastname=" + lastname 
                 + ", phone=" + phone 
                 + '}';
     }
-      
-            
+    
+    
 }

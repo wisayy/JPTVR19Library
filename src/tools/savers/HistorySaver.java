@@ -17,38 +17,40 @@ import java.io.ObjectOutputStream;
  * @author pupil
  */
 public class HistorySaver {
-    private final String fileName = "histories";
 
     public void saveHistories(History[] histories) {
+       
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
-            fos = new FileOutputStream(fileName);
+            fos = new FileOutputStream("histories");
             oos = new ObjectOutputStream(fos);
             oos.writeObject(histories);
             oos.flush();
         } catch (FileNotFoundException ex) {
             System.out.println("Не найден файл");
         } catch (IOException ex) {
-            System.out.println("Ошибка ввода/вывода");    
+            System.out.println("Ошибка ввода/вывода");
         }
     }
 
-    public History[] loadFile() {
+    public History[] loadHistories() {
+        History[] histories = new History[10];
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         try {
-            fis = new FileInputStream(fileName);
+            fis = new FileInputStream("histories");
             ois = new ObjectInputStream(fis);
-            return (History[]) ois.readObject();
+            histories = (History[]) ois.readObject();
         } catch (FileNotFoundException ex) {
             System.out.println("Не найден файл");
         } catch (IOException ex) {
             System.out.println("Ошибка ввода/вывода");
         } catch (ClassNotFoundException ex) {
-            System.out.println("Ошибка: не найден класс");
+            System.out.println("Не найден класс");
         }
-        return new History[100];
+        return histories;
+  
     }
     
 }

@@ -18,11 +18,11 @@ public class CreatorReader {
         Reader reader = new Reader();
         System.out.println("--- Регистрация нового пользователя ---");
         System.out.print("Введите имя: ");
-        reader.setName(scanner.nextLine());
+        reader.setFirstname(scanner.nextLine());
         System.out.print("Введите фамилию: ");
         reader.setLastname(scanner.nextLine());
         System.out.print("Введите телефон: ");
-        reader.setName(scanner.nextLine());
+        reader.setFirstname(scanner.nextLine());
         return reader;
     }
     

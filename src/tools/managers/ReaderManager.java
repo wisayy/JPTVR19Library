@@ -15,37 +15,41 @@ import java.util.Scanner;
  * @author pupil
  */
 public class ReaderManager {
-
+    private Scanner scanner = new Scanner(System.in);
     public Reader createReader() {
         Reader reader = new Reader();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("--- Регистрация читателя ---");
-        System.out.print("Имя: ");
-        reader.setName(scanner.nextLine());
-        System.out.print("Фамилия: ");
+        System.out.println("--- Регистрация нового пользователя ---");
+        System.out.print("Введите имя: ");
+        reader.setFirstname(scanner.nextLine());
+        System.out.print("Введите фамилию: ");
         reader.setLastname(scanner.nextLine());
-        System.out.print("Телефон: ");
+        System.out.print("Введите телефон: ");
         reader.setPhone(scanner.nextLine());
+        this.printReader(reader);
         return reader;
     }
 
     public void addReaderToArray(Reader reader, Reader[] readers) {
         for (int i = 0; i < readers.length; i++) {
             if(readers[i] == null){
-                readers[i]=reader;
+                readers[i] = reader;
                 break;
             }
-        }   
+        }
     }
+
+    public void printReader(Reader reader) {
+        System.out.println("Имя читателя: "
+                +reader.getFirstname()
+                +" "
+                + reader.getLastname()
+        );
+    }
+
     public void printListReaders(Reader[] readers) {
         for (int i = 0; i < readers.length; i++) {
-            if(readers[i]!= null){
-                System.out.printf("%3d. Добавлен читатель: %s %s%n"
-                        ,i+1
-                        ,readers[i].getName()
-                        ,readers[i].getLastname()
-                );
-                System.out.println("--------------------------------");
+            if(readers[i] != null){
+                System.out.println(i+1+". " + readers[i].toString());
             }
         }
     }

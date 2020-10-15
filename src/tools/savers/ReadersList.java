@@ -18,7 +18,7 @@ public class ReadersList {
         Reader reader = new Reader();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите ваше имя");
-        reader.setName(scanner.nextLine());
+        reader.setFirstname(scanner.nextLine());
         System.out.println("Введите вашу фамилию");
         reader.setLastname(scanner.nextLine());
         System.out.println("Введите ваш номер телфона");
