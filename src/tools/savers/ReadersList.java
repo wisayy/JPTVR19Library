@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tools;
+package tools.savers;
 
 import entity.Reader;
 import java.util.Scanner;
@@ -18,7 +18,7 @@ public class ReadersList {
         Reader reader = new Reader();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите ваше имя");
-        reader.setFirstname(scanner.nextLine());
+        reader.setName(scanner.nextLine());
         System.out.println("Введите вашу фамилию");
         reader.setLastname(scanner.nextLine());
         System.out.println("Введите ваш номер телфона");

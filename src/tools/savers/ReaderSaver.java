@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tools;
+package tools.savers;
 
 import entity.Book;
 import entity.Reader;
@@ -19,7 +19,8 @@ import java.io.ObjectOutputStream;
  * @author pupil
  */
 public class ReaderSaver {
-
+    private final String fileName = "readers";
+    
     public void saveReaders(Reader[] readers) {
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
@@ -49,6 +50,24 @@ public class ReaderSaver {
             System.out.println("Ошибка ввода/вывода");
         } catch (ClassNotFoundException ex) {
             System.out.println("Не найден класс");
+        }
+        return readers;
+    }
+
+    public Reader[] loadFile() {
+        Reader[] readers = new Reader[10];
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {
+            fis = new FileInputStream(fileName);
+            ois = new ObjectInputStream(fis);
+            return (Reader[]) ois.readObject();
+        } catch (FileNotFoundException ex) {
+            System.out.println("Не найден файл");
+        } catch (IOException ex) {
+            System.out.println("Ошибка ввода/вывода");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Ошибка: не найден класс");
         }
         return readers;
     }

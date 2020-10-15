@@ -68,5 +68,9 @@ public class History {
                 + ", returnDate=" + returnDate
                 + '}';
     }
+
+    public void setTakeOnDate(Date time) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

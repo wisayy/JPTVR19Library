@@ -3,57 +3,52 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tools;
+package tools.savers;
 
-import entity.Book;
+import entity.History;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
- * @author Melnikov
+ * @author pupil
  */
-public class BookSaver {
+public class HistorySaver {
+    private final String fileName = "histories";
 
-    public void saveBooks(Book[] books) {
+    public void saveHistories(History[] histories) {
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
-            fos = new FileOutputStream("books");
+            fos = new FileOutputStream(fileName);
             oos = new ObjectOutputStream(fos);
-            oos.writeObject(books);
+            oos.writeObject(histories);
             oos.flush();
         } catch (FileNotFoundException ex) {
             System.out.println("Не найден файл");
         } catch (IOException ex) {
-            System.out.println("Ошибка ввода/вывода");
+            System.out.println("Ошибка ввода/вывода");    
         }
     }
 
-    public Book[] loadBooks() {
-        Book[] books = null;
+    public History[] loadFile() {
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         try {
-            fis = new FileInputStream("books");
+            fis = new FileInputStream(fileName);
             ois = new ObjectInputStream(fis);
-            books = (Book[]) ois.readObject();
+            return (History[]) ois.readObject();
         } catch (FileNotFoundException ex) {
             System.out.println("Не найден файл");
         } catch (IOException ex) {
             System.out.println("Ошибка ввода/вывода");
         } catch (ClassNotFoundException ex) {
-            System.out.println("Не найден класс");
+            System.out.println("Ошибка: не найден класс");
         }
-        return books;
+        return new History[100];
     }
-
-    
     
 }

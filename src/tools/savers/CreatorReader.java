@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tools;
+package tools.savers;
 
 import entity.Reader;
 import java.util.Scanner;
@@ -18,11 +18,11 @@ public class CreatorReader {
         Reader reader = new Reader();
         System.out.println("--- Регистрация нового пользователя ---");
         System.out.print("Введите имя: ");
-        reader.setFirstname(scanner.nextLine());
+        reader.setName(scanner.nextLine());
         System.out.print("Введите фамилию: ");
         reader.setLastname(scanner.nextLine());
         System.out.print("Введите телефон: ");
-        reader.setFirstname(scanner.nextLine());
+        reader.setName(scanner.nextLine());
         return reader;
     }
     
